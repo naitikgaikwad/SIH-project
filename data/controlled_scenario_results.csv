@@ -1,0 +1,7 @@
+scenario,attack_category,primary_evidence,signature_verification,ml_prediction,ml_probability,risk_score,threat_level,assessment
+NORMAL EVENT,BENIGN,No abnormal security indicators,VALID,NORMAL,0.0,0,LOW,NORMAL SECURITY EVENT
+DOCUMENT TAMPERING,DOCUMENT_TAMPERING,Signature verification failure after document modification,INVALID,THREAT,0.815,45,MEDIUM,SUSPICIOUS SECURITY EVENT
+REPLAY-LIKE ACTIVITY,REPLAY,Repeated verification activity with replay indicator,VALID,THREAT,0.655,20,LOW,SUSPICIOUS SECURITY EVENT
+CERTIFICATE PROBLEM,CERTIFICATE_SECURITY,Invalid certificate with failed signature verification,INVALID,THREAT,0.84,50,MEDIUM,SUSPICIOUS SECURITY EVENT
+BEHAVIORAL ANOMALY,BEHAVIORAL_ANOMALY,Unusually high verification activity and elevated failure rate,VALID,NORMAL,0.325,25,LOW,NORMAL SECURITY EVENT
+MULTIPLE SUSPICIOUS INDICATORS,COMBINED_THREAT,Multiple independent security indicators,INVALID,THREAT,0.975,100,HIGH,HIGH-RISK SECURITY EVENT

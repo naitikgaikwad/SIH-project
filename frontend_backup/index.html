@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Signature Threat Detector</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Digital Signature Threat Detector</h1>
+            <p>SIH26141 — Quantum-Inspired Cyber Threat Detection</p>
+        </header>
+
+
+        <section class="upload-card">
+
+            <h2>Authenticate & Analyze</h2>
+
+            <p class="description">
+                Upload a digitally signed document, its signature,
+                and the corresponding public key.
+            </p>
+
+
+            <div class="file-group">
+
+                <label for="document">
+                    Document
+                </label>
+
+                <input
+                    type="file"
+                    id="document"
+                >
+
+            </div>
+
+
+            <div class="file-group">
+
+                <label for="signature">
+                    Digital Signature
+                </label>
+
+                <input
+                    type="file"
+                    id="signature"
+                >
+
+            </div>
+
+
+            <div class="file-group">
+
+                <label for="publicKey">
+                    Public Key
+                </label>
+
+                <input
+                    type="file"
+                    id="publicKey"
+                >
+
+            </div>
+
+
+            <button id="analyzeButton">
+                VERIFY & ANALYZE
+            </button>
+
+
+            <div id="loading" class="hidden">
+                Analyzing security event...
+            </div>
+
+        </section>
+
+
+        <section id="resultSection" class="result-card hidden">
+
+            <h2>Security Analysis Result</h2>
+
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Signature Verification</span>
+                    <strong id="signatureVerification">-</strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>ML Prediction</span>
+                    <strong id="mlPrediction">-</strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Threat Probability</span>
+                    <strong id="threatProbability">-</strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Risk Score</span>
+                    <strong id="riskScore">-</strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Threat Level</span>
+                    <strong id="threatLevel">-</strong>
+                </div>
+
+
+                <div class="result-item">
+                    <span>Attack Category</span>
+                    <strong id="attackCategory">-</strong>
+                </div>
+
+            </div>
+
+
+            <div class="result-block">
+
+                <h3>Contributing Indicators</h3>
+
+                <ul id="indicators">
+                </ul>
+
+            </div>
+
+
+            <div class="result-block">
+
+                <h3>Assessment</h3>
+
+                <p id="assessment">-</p>
+
+            </div>
+
+
+            <div class="result-block">
+
+                <h3>Explanation</h3>
+
+                <ul id="explanation">
+                </ul>
+
+            </div>
+
+
+            <div class="result-block">
+
+                <h3>Recommended Action</h3>
+
+                <ul id="recommendations">
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>
+                SIH26141 Digital Signature Security Project
+            </p>
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

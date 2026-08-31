@@ -1,0 +1,490 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f3f5f7;
+    --card: #ffffff;
+    --text: #17202a;
+    --muted: #68737d;
+    --border: #dce1e5;
+    --dark: #17202a;
+    --success: #198754;
+    --danger: #dc3545;
+    --warning: #d98b00;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.app {
+    width: min(1150px, 92%);
+    margin: 0 auto;
+    padding: 35px 0;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: var(--muted);
+}
+
+.header h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+.header h1 span {
+    display: block;
+}
+
+.header p {
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--success);
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 20px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.section-number {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+/* ================================
+   UPLOAD
+================================ */
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.file-box {
+    position: relative;
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border: 1px dashed #c8ced3;
+    border-radius: 10px;
+    background: #fafbfc;
+}
+
+.file-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: var(--dark);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.file-info label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.file-info span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.file-box input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.analyze-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--dark);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.analyze-button:hover {
+    opacity: 0.9;
+}
+
+.analyze-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.arrow {
+    font-size: 22px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.spinner {
+    width: 17px;
+    height: 17px;
+    border: 2px solid #d9dee2;
+    border-top-color: var(--dark);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+   AUTHENTICATION
+================================ */
+
+.authentication-result {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.authentication-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #e8f6ee;
+    color: var(--success);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.authentication-status {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.authentication-result p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.crypto-details {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+}
+
+.crypto-details span,
+.crypto-details strong {
+    display: block;
+}
+
+.crypto-details span {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.crypto-details strong {
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+/* ================================
+   METRICS
+================================ */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.metric {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.metric-label {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.metric strong {
+    font-size: 22px;
+}
+
+/* ================================
+   RISK
+================================ */
+
+.risk-container {
+    margin-top: 25px;
+}
+
+.risk-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.risk-bar {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #e7eaed;
+}
+
+.risk-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--dark);
+    transition: width 0.5s ease;
+}
+
+.attack-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 17px;
+    border-radius: 9px;
+    background: #f6f7f8;
+}
+
+.attack-category span {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.attack-category strong {
+    font-size: 16px;
+}
+
+/* ================================
+   TWO COLUMN
+================================ */
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ================================
+   RESULTS
+================================ */
+
+.result-list {
+    padding-left: 20px;
+}
+
+.result-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.assessment {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 18px;
+    border-radius: 9px;
+    background: #f6f7f8;
+}
+
+.recommendation-card {
+    margin-bottom: 30px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer div {
+    font-weight: bold;
+}
+
+/* ================================
+   UTILITY
+================================ */
+
+.hidden {
+    display: none !important;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 850px) {
+
+    .file-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .authentication-result {
+        flex-wrap: wrap;
+    }
+
+    .crypto-details {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .app {
+        width: 94%;
+        padding-top: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .system-status {
+        align-self: flex-start;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}

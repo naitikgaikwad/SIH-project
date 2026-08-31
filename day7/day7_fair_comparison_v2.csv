@@ -1,0 +1,2 @@
+method,feature_count,selected_features,accuracy,precision,recall,f1,roc_auc,random_seed,test_size,optimization_iterations,solutions_per_iteration
+Quantum-Inspired Probability-Vector Feature Selection,7,"verification_result, failed_attempts, certificate_valid, source_frequency, failed_verification_rate, metadata_anomaly, replay_indicator",0.965,0.9730392156862745,0.9754299754299754,0.9742331288343559,0.994373082455984,42,0.2,30,10

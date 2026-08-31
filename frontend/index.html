@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIH26141 | Digital Signature Security</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <div>
+
+            <div class="project-tag">
+                SIH26141
+            </div>
+
+            <h1>
+                Digital Signature
+                <span>Security Analyzer</span>
+            </h1>
+
+            <p>
+                Quantum-Inspired Cyber Threat Detection
+                for Digital Signature Security
+            </p>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            API ONLINE
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         UPLOAD SECTION
+         ===================================================== -->
+
+    <section class="card upload-card">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <h2>
+                    Authenticate Document
+                </h2>
+
+                <p>
+                    Upload the document, digital signature,
+                    and public key for security analysis.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="file-grid">
+
+
+            <!-- DOCUMENT -->
+
+            <div class="file-box">
+
+                <div class="file-icon">
+                    DOC
+                </div>
+
+                <div class="file-info">
+
+                    <label for="document">
+                        Document
+                    </label>
+
+                    <span>
+                        Signed document
+                    </span>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="document"
+                >
+
+            </div>
+
+
+            <!-- SIGNATURE -->
+
+            <div class="file-box">
+
+                <div class="file-icon">
+                    SIG
+                </div>
+
+                <div class="file-info">
+
+                    <label for="signature">
+                        Digital Signature
+                    </label>
+
+                    <span>
+                        RSA-PSS signature
+                    </span>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="signature"
+                >
+
+            </div>
+
+
+            <!-- PUBLIC KEY -->
+
+            <div class="file-box">
+
+                <div class="file-icon">
+                    KEY
+                </div>
+
+                <div class="file-info">
+
+                    <label for="publicKey">
+                        Public Key
+                    </label>
+
+                    <span>
+                        PEM encoded public key
+                    </span>
+
+                </div>
+
+                <input
+                    type="file"
+                    id="publicKey"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="analyzeButton"
+            class="analyze-button"
+            type="button"
+        >
+
+            <span>
+                VERIFY & ANALYZE
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </button>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+
+            <div class="spinner"></div>
+
+            <span>
+                Verifying signature and analyzing security event...
+            </span>
+
+        </div>
+
+
+        <!-- ERROR MESSAGE -->
+
+        <div
+            id="errorMessage"
+            class="error-message hidden"
+        >
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RESULTS
+         ===================================================== -->
+
+    <section
+        id="resultSection"
+        class="hidden"
+    >
+
+
+        <!-- =================================================
+             CRYPTOGRAPHIC AUTHENTICATION
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="section-label">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                CRYPTOGRAPHIC AUTHENTICATION
+
+            </div>
+
+
+            <div class="authentication-result">
+
+
+                <div
+                    id="authenticationIcon"
+                    class="authentication-icon"
+                >
+                    -
+                </div>
+
+
+                <div>
+
+                    <div
+                        id="signatureVerification"
+                        class="authentication-status"
+                    >
+                        -
+                    </div>
+
+                    <p>
+                        Digital signature verification result
+                    </p>
+
+                </div>
+
+
+                <div class="crypto-details">
+
+                    <div>
+
+                        <span>
+                            Algorithm
+                        </span>
+
+                        <strong id="algorithm">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Hash
+                        </span>
+
+                        <strong id="hashAlgorithm">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             THREAT ANALYSIS
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="section-label">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                THREAT ANALYSIS
+
+            </div>
+
+
+            <div class="metrics-grid">
+
+
+                <div class="metric">
+
+                    <span class="metric-label">
+                        ML PREDICTION
+                    </span>
+
+                    <strong id="mlPrediction">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <span class="metric-label">
+                        THREAT PROBABILITY
+                    </span>
+
+                    <strong id="threatProbability">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <span class="metric-label">
+                        RISK SCORE
+                    </span>
+
+                    <strong id="riskScore">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <span class="metric-label">
+                        THREAT LEVEL
+                    </span>
+
+                    <strong id="threatLevel">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="risk-container">
+
+                <div class="risk-header">
+
+                    <span>
+                        Risk Assessment
+                    </span>
+
+                    <strong id="riskText">
+                        0 / 100
+                    </strong>
+
+                </div>
+
+
+                <div class="risk-bar">
+
+                    <div
+                        id="riskFill"
+                        class="risk-fill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="attack-category">
+
+                <span>
+                    ATTACK CATEGORY
+                </span>
+
+                <strong id="attackCategory">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             REPLAY DETECTION
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="section-label">
+
+                <span class="section-number">
+                    04
+                </span>
+
+                REPLAY DETECTION
+
+            </div>
+
+
+            <div class="attack-category">
+
+                <span>
+                    DOCUMENT STATUS
+                </span>
+
+                <strong id="replayStatus">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             INDICATORS + ASSESSMENT
+             ================================================= -->
+
+        <div class="two-column">
+
+
+            <!-- INDICATORS -->
+
+            <div class="card">
+
+                <div class="section-label">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    CONTRIBUTING INDICATORS
+
+                </div>
+
+
+                <ul
+                    id="indicators"
+                    class="result-list"
+                >
+                </ul>
+
+            </div>
+
+
+            <!-- ASSESSMENT -->
+
+            <div class="card">
+
+                <div class="section-label">
+
+                    <span class="section-number">
+                        06
+                    </span>
+
+                    ASSESSMENT
+
+                </div>
+
+
+                <div
+                    id="assessment"
+                    class="assessment"
+                >
+                    -
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EXPLANATION
+             ================================================= -->
+
+        <div class="card">
+
+            <div class="section-label">
+
+                <span class="section-number">
+                    07
+                </span>
+
+                DETECTION EXPLANATION
+
+            </div>
+
+
+            <ul
+                id="explanation"
+                class="result-list"
+            >
+            </ul>
+
+        </div>
+
+
+        <!-- =================================================
+             RECOMMENDATIONS
+             ================================================= -->
+
+        <div class="card recommendation-card">
+
+            <div class="section-label">
+
+                <span class="section-number">
+                    08
+                </span>
+
+                RECOMMENDED ACTION
+
+            </div>
+
+
+            <ul
+                id="recommendations"
+                class="result-list"
+            >
+            </ul>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div>
+            SIH26141
+        </div>
+
+        <span>
+            Digital Signature Security
+            •
+            AI/ML Threat Detection
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="./script.js"></script>
+
+</body>
+
+</html>

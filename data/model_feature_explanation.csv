@@ -1,0 +1,17 @@
+feature,importance
+numeric__failed_attempts,0.2734030042033286
+numeric__failed_verification_rate,0.26817498477697865
+numeric__verification_result,0.10600811671586532
+numeric__verification_frequency,0.09546714357878237
+numeric__source_frequency,0.0511906010055925
+numeric__replay_indicator,0.04249025129591346
+numeric__certificate_valid,0.033930824125524346
+numeric__metadata_anomaly,0.033477421332389116
+numeric__key_age_days,0.018814850189441845
+numeric__time_since_previous,0.018591969470805297
+numeric__signature_size,0.01656087825323652
+numeric__document_size,0.016244607171994288
+numeric__hour,0.012038599509867806
+numeric__key_size,0.009467535575356251
+categorical__algorithm_RSA-PKCS1v15,0.002183849652159071
+categorical__algorithm_RSA-PSS,0.0019553631427645522
